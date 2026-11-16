@@ -18,6 +18,10 @@ namespace Blackjack_Game.Services
         private Player _player;
         private Player _dealer;
 
+        /// <summary>
+        /// Description: Méthode gérant la logique du début d'une partie
+        /// Date: 2026-11-16
+        /// </summary>
         public void StartGame()
         {
             _deck = new Deck();
@@ -41,6 +45,10 @@ namespace Blackjack_Game.Services
             DisplayResult();
         }
 
+        /// <summary>
+        /// Desription: Méthode permettant d'afficher les résultats
+        /// Date: 2026-11-16
+        /// </summary>
         private void DisplayResult()
         {
             int playerScore = _player.Hand.CalcScore();
@@ -60,6 +68,10 @@ namespace Blackjack_Game.Services
                 Console.WriteLine("Push!");
         }
 
+        /// <summary>
+        /// Description: Méthode gérant la logique du tour du dealer
+        /// Date: 2026-11-16
+        /// </summary>
         private void PlayDealerTurn()
         {
             Console.WriteLine("\nDealer's turn...");
@@ -70,6 +82,10 @@ namespace Blackjack_Game.Services
             DisplayHand(_dealer);
         }
 
+        /// <summary>
+        /// Description: Méthode gérant la logique du tour du joueur
+        /// Date: 2026-11-16
+        /// </summary>
         private void PlayPlayerTurn()
         {
             while (true)
@@ -96,6 +112,11 @@ namespace Blackjack_Game.Services
             }
         }
 
+        /// <summary>
+        /// Description: Méthode permettant d'afficher une main
+        /// Date: 2026-11-16
+        /// </summary>
+        /// <param name="player">joueur dont il faut afficher la main</param>
         private void DisplayHand(Player player)
         {
             Console.WriteLine($"\n{player.Name}'s hand:");
