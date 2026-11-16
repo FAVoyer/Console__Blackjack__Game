@@ -56,7 +56,7 @@ namespace Blackjack_Game.Models
                     score += (int)card.Rank;
             }
 
-            while (score > 21 && aceCount > 0) ;
+            while (score > 21 && aceCount > 0)
             {
                 score -= 10;
                 aceCount--;
