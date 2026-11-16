@@ -23,6 +23,7 @@ namespace Blackjack_Game.Models
         public Player(string name)
         {
             Name = name;
+            Hand = new Hand();
         }
 
         /// <summary>

@@ -35,7 +35,16 @@ namespace Blackjack_Game.Services
             _player.DrawCard(_deck);
             _dealer.DrawCard(_deck);
 
+
             Console.WriteLine("=== Blackjack ===");
+
+            DisplayHand(_dealer);
+
+            if (_dealer.Hand.CalcScore() == 21)
+            {
+                DisplayResult();
+                return;
+            }
 
             PlayPlayerTurn();
 
@@ -54,7 +63,7 @@ namespace Blackjack_Game.Services
             int playerScore = _player.Hand.CalcScore();
             int dealerScore = _dealer.Hand.CalcScore();
 
-            Console.WriteLine("\n=== GAME RESULT ===");
+            Console.WriteLine("\n=== GAME RESULT ===\n");
 
             if (playerScore > 21)
                 Console.WriteLine("You busted! Dealer wins");
@@ -64,6 +73,8 @@ namespace Blackjack_Game.Services
                 Console.WriteLine("You win!");
             else if (playerScore < dealerScore)
                 Console.WriteLine("Dealer wins!");
+            else if (dealerScore == 21)
+                Console.WriteLine("Dealer Blackjack! You lose");
             else
                 Console.WriteLine("Push!");
         }
@@ -94,7 +105,7 @@ namespace Blackjack_Game.Services
 
                 int score = _player.Hand.CalcScore();
 
-                if(score <= 21)
+                if(score > 21)
                 {
                     Console.WriteLine("Bust! You lose.");
                     return;
