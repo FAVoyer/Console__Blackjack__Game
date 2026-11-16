@@ -25,6 +25,11 @@ namespace Blackjack_Game.Models
             Name = name;
         }
 
+        /// <summary>
+        /// Description: Méthode permettant au joueur de piger une carte
+        /// Date: 2026-11-16
+        /// </summary>
+        /// <param name="deck"></param>
         public void DrawCard(Deck deck)
         {
             Hand.AddCard(deck.DrawCard());
